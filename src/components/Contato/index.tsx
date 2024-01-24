@@ -1,14 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import * as S from './styles'
 import { useDispatch } from 'react-redux'
-import { remover } from '../../store/reducers/contato'
+import { remover, editar } from '../../store/reducers/contato'
 import Contact from '../../models/Contact'
 
 type Props = Contact
 
-const Contato = ({ descricao, titulo, tag, id }: Props) => {
+const Contato = ({ descricao: descricaoOriginal, titulo, tag, id }: Props) => {
   const dispatch = useDispatch()
   const [estaEdiando, setEstaEditando] = useState(false)
+  const [descricao, setDescricao] = useState('')
+
+  function cancelarEdicao() {
+    setEstaEditando(false)
+    setDescricao(descricaoOriginal)
+  }
+
+  useEffect(() => {
+    if (descricaoOriginal.length > 0) {
+      setDescricao(descricaoOriginal)
+    }
+  }, [descricaoOriginal])
   return (
     <S.Card>
       <S.Titulo>
@@ -16,9 +28,14 @@ const Contato = ({ descricao, titulo, tag, id }: Props) => {
         {titulo}
       </S.Titulo>
       <S.Tag tag={tag}>{tag}</S.Tag>
-      <S.Descricao value={descricao} />
 
-      <S.Telefone>
+      <S.Descricao
+        disabled={!estaEdiando}
+        value={descricao}
+        onChange={(evento) => setDescricao(evento.target.value)}
+      />
+
+      {/*<S.Telefone>
         <i className="bi bi-telephone-fill"></i> 85989090564
       </S.Telefone>
 
@@ -26,14 +43,29 @@ const Contato = ({ descricao, titulo, tag, id }: Props) => {
         <i className="bi bi-envelope-fill"></i>{' '}
         marcos.rodrigues2015@yahoo.coml.br
       </S.Email>
+  */}
 
       <S.BarraAcoes>
         {estaEdiando ? (
           <>
-            <S.BotaoSalvar onClick={() => setEstaEditando(false)}>
+            <S.BotaoSalvar
+              onClick={() => {
+                dispatch(
+                  editar({
+                    titulo,
+                    tag,
+                    descricao,
+                    id
+                  })
+                )
+                setEstaEditando(false)
+              }}
+            >
               Salvar
             </S.BotaoSalvar>
-            <S.BotaoCancelarRemover>Cancelar</S.BotaoCancelarRemover>
+            <S.BotaoCancelarRemover onClick={cancelarEdicao}>
+              Cancelar
+            </S.BotaoCancelarRemover>
           </>
         ) : (
           <>

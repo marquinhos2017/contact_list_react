@@ -23,14 +23,21 @@ const contatos = [
 
 const ListaDeTarefas = () => {
   const { items } = useSelector((state: RootReducer) => state.contatos)
+  const { termo } = useSelector((state: RootReducer) => state.filtro)
+
+  const filtraContatos = () => {
+    return items.filter(
+      (item) => item.titulo.toLocaleLowerCase().search(termo.toLowerCase()) >= 0
+    )
+  }
 
   return (
     <Container>
       <p>
-        2 contados marcados como: &quot;Trabalho&ldquo; e &quot;Termo&ldquo;
+        2 contados marcados como: &quot;Trabalho&ldquo; e &quot;{termo}&ldquo;
       </p>
       <ListaContatos>
-        {items.map((t) => (
+        {filtraContatos().map((t) => (
           <li key={t.titulo}>
             <Contato
               id={t.id}

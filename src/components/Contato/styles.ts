@@ -68,8 +68,11 @@ export const Botao = styled.button`
 export const Descricao = styled.textarea`
   color: black;
   font-size: 14px;
-  line-height: 24px;
   display: block;
+
+  height: 16px; /* Set the desired height of the textarea */
+  line-height: 16px; /* Set line-height to the same value as the height */
+  vertical-align: middle;
   width: 100%;
   margin-bottom: 16px;
   margin-top: 16px;
