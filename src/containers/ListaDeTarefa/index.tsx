@@ -1,5 +1,5 @@
 import Contato from '../../components/Contato'
-import { Container, ListaContatos } from './styles'
+import { Container, ListaContatos, Resultado } from './styles'
 import * as enums from '../../utils/enums/Contato'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
@@ -46,18 +46,29 @@ const ListaDeTarefas = () => {
     }
   }
 
+  const contatos = filtraContatos()
+
+  const exibeResultadoFiltrado = (quantidade: number) => {
+    let mensagem = ''
+    const complementacao =
+      termo !== undefined && termo.length > 0 ? ` e "${termo}"` : ''
+
+    if (criterio === 'todas') {
+      mensagem = `${quantidade} contatos encontrada(s) como: todas ${complementacao} `
+    } else {
+      mensagem = `${quantidade} contatos encontrada(s) como: "${`${criterio}=${valor}`}" ${complementacao}"`
+    }
+
+    return mensagem
+  }
+
+  const mensagem = exibeResultadoFiltrado(contatos.length)
+
   return (
     <Container>
-      <p>
-        2 contados marcados como: &quot;Trabalho&ldquo; e &quot;{termo}&ldquo;
-      </p>
-      <ul>
-        <li>{termo}</li>
-        <li>{criterio}</li>
-        <li>{valor}</li>
-      </ul>
+      <Resultado>{mensagem}</Resultado>
       <ListaContatos>
-        {filtraContatos().map((t) => (
+        {contatos.map((t) => (
           <li key={t.titulo}>
             <Contato
               id={t.id}
