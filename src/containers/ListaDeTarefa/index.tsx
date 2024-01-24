@@ -22,7 +22,7 @@ const contatos = [
 ]
 
 const ListaDeTarefas = () => {
-  const { contatos } = useSelector((state: RootReducer) => state)
+  const { items } = useSelector((state: RootReducer) => state.contatos)
 
   return (
     <Container>
@@ -30,9 +30,14 @@ const ListaDeTarefas = () => {
         2 contados marcados como: &quot;Trabalho&ldquo; e &quot;Termo&ldquo;
       </p>
       <ListaContatos>
-        {contatos.map((t) => (
+        {items.map((t) => (
           <li key={t.titulo}>
-            <Contato descricao={t.descricao} titulo={t.titulo} tag={t.tag} />
+            <Contato
+              id={t.id}
+              descricao={t.descricao}
+              titulo={t.titulo}
+              tag={t.tag}
+            />
           </li>
         ))}
       </ListaContatos>
