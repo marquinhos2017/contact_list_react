@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
-
+import * as enums from '../../utils/enums/Contato'
 type TagProps = {
-  tag?: string
+  tag?: enums.Tag
 }
 
 function retornaCorDeFundo(props: TagProps): string {
   if ('tag' in props) {
-    if (props.tag === 'Home') return variaveis.purple
-    if (props.tag === 'Church') return variaveis.vermelho
-    if (props.tag === 'Work') return variaveis.verde
+    if (props.tag === enums.Tag.HOME) return variaveis.purple
+    if (props.tag === enums.Tag.CHURCH) return variaveis.vermelho
+    if (props.tag === enums.Tag.WORK) return variaveis.verde
   }
 
   return '#ccc'

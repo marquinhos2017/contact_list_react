@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import * as S from './styles'
+import * as enums from '../../utils/enums/Contato'
 
 type Props = {
   titulo: string
-  tag: string
+  tag: enums.Tag
   descricao: string
 }
 
