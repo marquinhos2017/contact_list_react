@@ -10,10 +10,23 @@ const contatosSlice = createSlice({
         'Marcos Rodrigues Correia',
         enums.Tag.CHURCH,
         'marcos.rodirgues2015@yahoo.com.br',
-        1
+        1,
+        '(85) 98909564'
       ),
-      new Contact('Maria Juana', enums.Tag.HOME, 'mariajuana@gmail.com', 2),
-      new Contact('Drika Costa', enums.Tag.WORK, 'drikaqueiroz@gmail.com', 3)
+      new Contact(
+        'Maria Juana',
+        enums.Tag.HOME,
+        'mariajuana@gmail.com',
+        2,
+        '(85) 4653-2534'
+      ),
+      new Contact(
+        'Drika Costa',
+        enums.Tag.WORK,
+        'drikaqueiroz@gmail.com',
+        3,
+        '(85) 9647-3123'
+      )
     ]
   },
   reducers: {

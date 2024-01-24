@@ -6,14 +6,22 @@ import Contact from '../../models/Contact'
 
 type Props = Contact
 
-const Contato = ({ descricao: descricaoOriginal, titulo, tag, id }: Props) => {
+const Contato = ({
+  descricao: descricaoOriginal,
+  titulo,
+  tag,
+  id,
+  descricao2: descricao2Original
+}: Props) => {
   const dispatch = useDispatch()
   const [estaEdiando, setEstaEditando] = useState(false)
   const [descricao, setDescricao] = useState('')
+  const [descricao2, setDescricao2] = useState('')
 
   function cancelarEdicao() {
     setEstaEditando(false)
     setDescricao(descricaoOriginal)
+    setDescricao2(descricao2Original)
   }
 
   useEffect(() => {
@@ -21,6 +29,13 @@ const Contato = ({ descricao: descricaoOriginal, titulo, tag, id }: Props) => {
       setDescricao(descricaoOriginal)
     }
   }, [descricaoOriginal])
+
+  useEffect(() => {
+    if (descricao2Original.length > 0) {
+      setDescricao2(descricao2Original)
+    }
+  }, [descricao2Original])
+
   return (
     <S.Card>
       <S.Titulo>
@@ -33,6 +48,12 @@ const Contato = ({ descricao: descricaoOriginal, titulo, tag, id }: Props) => {
         disabled={!estaEdiando}
         value={descricao}
         onChange={(evento) => setDescricao(evento.target.value)}
+      />
+
+      <S.Descricao2
+        disabled={!estaEdiando}
+        value={descricao2}
+        onChange={(evento) => setDescricao2(evento.target.value)}
       />
 
       {/*<S.Telefone>
@@ -55,7 +76,8 @@ const Contato = ({ descricao: descricaoOriginal, titulo, tag, id }: Props) => {
                     titulo,
                     tag,
                     descricao,
-                    id
+                    id,
+                    descricao2
                   })
                 )
                 setEstaEditando(false)

@@ -75,6 +75,7 @@ const ListaDeTarefas = () => {
               descricao={t.descricao}
               titulo={t.titulo}
               tag={t.tag}
+              descricao2={t.descricao2}
             />
           </li>
         ))}

@@ -82,6 +82,23 @@ export const Descricao = styled.textarea`
   font-weight: bold;
 `
 
+export const Descricao2 = styled.textarea`
+  color: black;
+  font-size: 14px;
+  display: block;
+
+  height: 16px; /* Set the desired height of the textarea */
+  line-height: 16px; /* Set line-height to the same value as the height */
+  vertical-align: middle;
+  width: 100%;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  resize: none;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+`
+
 export const BotaoSalvar = styled(Botao)`
   background-color: ${variaveis.verde};
 `
