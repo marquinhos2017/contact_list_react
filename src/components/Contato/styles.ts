@@ -1,4 +1,19 @@
 import styled from 'styled-components'
+import variaveis from '../../styles/variaveis'
+
+type TagProps = {
+  tag?: string
+}
+
+function retornaCorDeFundo(props: TagProps): string {
+  if ('tag' in props) {
+    if (props.tag === 'Home') return variaveis.purple
+    if (props.tag === 'Church') return variaveis.vermelho
+    if (props.tag === 'Work') return variaveis.verde
+  }
+
+  return '#ccc'
+}
 
 export const Card = styled.div`
   background-color: #fcfcfc;
@@ -23,12 +38,12 @@ export const Email = styled.p`
   margin-top: 8px;
 `
 
-export const Tag = styled.span`
+export const Tag = styled.span<TagProps>`
   padding: 4px 8px;
   color: #fff;
   font-weight: bold;
-  font-size: 10px;
-  background-color: #e1a32a;
+  font-size: 12px;
+  background-color: ${(props) => retornaCorDeFundo(props)};
   border-radius: 8px;
   margin-left: 16px;
   display: inline-block;
@@ -51,7 +66,7 @@ export const Botao = styled.button`
 `
 
 export const Descricao = styled.textarea`
-  color: #8b8b8b;
+  color: black;
   font-size: 14px;
   line-height: 24px;
   display: block;
@@ -61,4 +76,12 @@ export const Descricao = styled.textarea`
   resize: none;
   border: none;
   background-color: transparent;
+  font-weight: bold;
+`
+
+export const BotaoSalvar = styled(Botao)`
+  background-color: ${variaveis.verde};
+`
+export const BotaoCancelarRemover = styled(Botao)`
+  background-color: ${variaveis.vermelho};
 `

@@ -1,59 +1,33 @@
 import Contato from '../../components/Contato'
-import Contact from '../../models/Contact'
 import { Container, ListaContatos } from './styles'
+
+const contatos = [
+  {
+    titulo: 'Marcos Rodrigues',
+    descricao: ' marcos.rodrigues2015@yahoo.com.br',
+    tag: 'Home'
+  },
+  {
+    titulo: 'Janaia de Costa',
+    descricao: 'janainacosta23@gogle.com.br',
+    tag: 'Church'
+  },
+  {
+    titulo: 'Georgia Kubic',
+    descricao: 'georgiakubic232@yahoo.com.br',
+    tag: 'Work'
+  }
+]
 
 const ListaDeTarefas = () => (
   <Container>
     <p>2 contados marcados como: &quot;Trabalho&ldquo; e &quot;Termo&ldquo;</p>
     <ListaContatos>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
-      <li>
-        <Contato />
-      </li>
+      {contatos.map((t) => (
+        <li key={t.titulo}>
+          <Contato descricao={t.descricao} titulo={t.titulo} tag={t.tag} />
+        </li>
+      ))}
     </ListaContatos>
   </Container>
 )
