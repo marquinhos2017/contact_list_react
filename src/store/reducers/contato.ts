@@ -1,0 +1,26 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import Contact from '../../models/Contact'
+import * as enums from '../../utils/enums/Contato'
+
+const contatosSlice = createSlice({
+  name: 'contatos',
+  initialState: [
+    new Contact(
+      'Marcos Rodrigues Correia',
+      enums.Tag.CHURCH,
+      'marcos.rodirgues2015@yahoo.com.br',
+      1
+    ),
+    new Contact('Maria Juana', enums.Tag.HOME, 'mariajuana@gmail.com', 2),
+    new Contact('Drika Costa', enums.Tag.WORK, 'drikaqueiroz@gmail.com', 3)
+  ],
+  reducers: {
+    remover: (state, action: PayloadAction<number>) => {
+      state = state.filter((tarefa) => Contact)
+    }
+  }
+})
+
+export const { remover } = contatosSlice.actions
+
+export default contatosSlice.reducer

@@ -1,6 +1,8 @@
 import Contato from '../../components/Contato'
 import { Container, ListaContatos } from './styles'
 import * as enums from '../../utils/enums/Contato'
+import { useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
 const contatos = [
   {
     titulo: 'Marcos Rodrigues',
@@ -19,17 +21,23 @@ const contatos = [
   }
 ]
 
-const ListaDeTarefas = () => (
-  <Container>
-    <p>2 contados marcados como: &quot;Trabalho&ldquo; e &quot;Termo&ldquo;</p>
-    <ListaContatos>
-      {contatos.map((t) => (
-        <li key={t.titulo}>
-          <Contato descricao={t.descricao} titulo={t.titulo} tag={t.tag} />
-        </li>
-      ))}
-    </ListaContatos>
-  </Container>
-)
+const ListaDeTarefas = () => {
+  const { contatos } = useSelector((state: RootReducer) => state)
+
+  return (
+    <Container>
+      <p>
+        2 contados marcados como: &quot;Trabalho&ldquo; e &quot;Termo&ldquo;
+      </p>
+      <ListaContatos>
+        {contatos.map((t) => (
+          <li key={t.titulo}>
+            <Contato descricao={t.descricao} titulo={t.titulo} tag={t.tag} />
+          </li>
+        ))}
+      </ListaContatos>
+    </Container>
+  )
+}
 
 export default ListaDeTarefas

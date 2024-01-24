@@ -1,10 +1,16 @@
+import * as enums from '../utils/enums/Contato'
+
 class Contact {
-  name: string
-  contact: string
+  titulo: string
+  tag: enums.Tag
+  descricao: string
   id: number
 
-  constructor(name: string, contact: string, id: number) {
-    ;(this.name = name), (this.contact = contact), (this.id = id)
+  constructor(titulo: string, tag: enums.Tag, descricao: string, id: number) {
+    ;(this.titulo = titulo),
+      (this.tag = tag),
+      (this.descricao = descricao),
+      (this.id = id)
   }
 }
 
