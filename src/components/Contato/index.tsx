@@ -45,17 +45,23 @@ const Contato = ({
       </S.Titulo>
       <S.Tag tag={tag}>{tag}</S.Tag>
 
-      <S.Descricao
-        disabled={!estaEdiando}
-        value={descricao}
-        onChange={(evento) => setDescricao(evento.target.value)}
-      />
+      <S.Email>
+        <S.Icon className="bi bi-envelope-fill"></S.Icon>
+        <S.Descricao
+          disabled={!estaEdiando}
+          value={descricao}
+          onChange={(evento) => setDescricao(evento.target.value)}
+        />
+      </S.Email>
 
-      <S.Descricao2
-        disabled={!estaEdiando}
-        value={descricao2}
-        onChange={(evento) => setDescricao2(evento.target.value)}
-      />
+      <S.Telefone>
+        <S.Icon className="bi bi-telephone-fill"></S.Icon>
+        <S.Descricao2
+          disabled={!estaEdiando}
+          value={descricao2}
+          onChange={(evento) => setDescricao2(evento.target.value)}
+        />
+      </S.Telefone>
 
       {/*<S.Telefone>
         <i className="bi bi-telephone-fill"></i> 85989090564

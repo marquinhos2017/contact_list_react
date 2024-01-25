@@ -28,14 +28,17 @@ export const Titulo = styled.h3`
   display: inline-block;
 `
 
-export const Telefone = styled.p`
-  font-size: 18px;
-  margin-top: 16px;
+export const Telefone = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
-export const Email = styled.p`
-  font-size: 18px;
-  margin-top: 8px;
+export const Email = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Tag = styled.span<TagProps>`
@@ -74,8 +77,8 @@ export const Descricao = styled.textarea`
   line-height: 16px; /* Set line-height to the same value as the height */
   vertical-align: middle;
   width: 100%;
-  margin-bottom: 16px;
-  margin-top: 16px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   resize: none;
   border: none;
   background-color: transparent;
@@ -91,8 +94,8 @@ export const Descricao2 = styled.textarea`
   line-height: 16px; /* Set line-height to the same value as the height */
   vertical-align: middle;
   width: 100%;
-  margin-bottom: 16px;
-  margin-top: 16px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   resize: none;
   border: none;
   background-color: transparent;
@@ -101,4 +104,9 @@ export const Descricao2 = styled.textarea`
 
 export const BotaoCancelarRemover = styled(Botao)`
   background-color: ${variaveis.vermelho};
+`
+export const Icon = styled.i`
+  justify-content: center; /* Horizontal centering */
+  align-items: center;
+  margin-right: 10px;
 `
