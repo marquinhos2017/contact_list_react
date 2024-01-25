@@ -11,14 +11,14 @@ class Contact {
     titulo: string,
     tag: enums.Tag,
     descricao: string,
-    id: number,
-    descricao2: string
+    descricao2: string,
+    id: number
   ) {
     ;(this.titulo = titulo),
       (this.tag = tag),
       (this.descricao = descricao),
-      (this.id = id),
-      (this.descricao2 = descricao2)
+      (this.descricao2 = descricao2),
+      (this.id = id)
   }
 }
 

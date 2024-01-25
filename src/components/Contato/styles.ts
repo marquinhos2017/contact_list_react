@@ -99,9 +99,6 @@ export const Descricao2 = styled.textarea`
   font-weight: bold;
 `
 
-export const BotaoSalvar = styled(Botao)`
-  background-color: ${variaveis.verde};
-`
 export const BotaoCancelarRemover = styled(Botao)`
   background-color: ${variaveis.vermelho};
 `

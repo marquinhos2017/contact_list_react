@@ -10,22 +10,22 @@ const contatosSlice = createSlice({
         'Marcos Rodrigues Correia',
         enums.Tag.CHURCH,
         'marcos.rodirgues2015@yahoo.com.br',
-        1,
-        '(85) 98909564'
+        '(85) 98909564',
+        1
       ),
       new Contact(
         'Maria Juana',
         enums.Tag.HOME,
         'mariajuana@gmail.com',
-        2,
-        '(85) 4653-2534'
+        '(85) 4653-2534',
+        2
       ),
       new Contact(
         'Drika Costa',
         enums.Tag.WORK,
         'drikaqueiroz@gmail.com',
-        3,
-        '(85) 9647-3123'
+        '(85) 9647-3123',
+        3
       )
     ]
   },
@@ -43,10 +43,22 @@ const contatosSlice = createSlice({
       if (IndexDoContato >= 0) {
         state.items[IndexDoContato] = action.payload
       }
+    },
+    cadastrar: (state, action: PayloadAction<Contact>) => {
+      const ContatoJaExiste = state.items.find(
+        (contato) =>
+          contato.titulo.toLowerCase() === action.payload.titulo.toLowerCase()
+      )
+
+      if (ContatoJaExiste) {
+        alert('Ja existe um contato com esse nome')
+      } else {
+        state.items.push(action.payload)
+      }
     }
   }
 })
 
-export const { remover, editar } = contatosSlice.actions
+export const { remover, editar, cadastrar } = contatosSlice.actions
 
 export default contatosSlice.reducer

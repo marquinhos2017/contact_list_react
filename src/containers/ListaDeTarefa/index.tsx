@@ -1,8 +1,9 @@
 import Contato from '../../components/Contato'
-import { Container, ListaContatos, Resultado } from './styles'
+import { ListaContatos } from './styles'
 import * as enums from '../../utils/enums/Contato'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
+import { MainContainer, Titulo } from '../../styles'
 const contatos = [
   {
     titulo: 'Marcos Rodrigues',
@@ -54,9 +55,9 @@ const ListaDeTarefas = () => {
       termo !== undefined && termo.length > 0 ? ` e "${termo}"` : ''
 
     if (criterio === 'todas') {
-      mensagem = `${quantidade} contatos encontrada(s) como: todas ${complementacao} `
+      mensagem = `${quantidade} contatos encontrados na categoria: todos ${complementacao} `
     } else {
-      mensagem = `${quantidade} contatos encontrada(s) como: "${`${criterio}=${valor}`}" ${complementacao}"`
+      mensagem = `${quantidade} contatos encontrados na categoria: ${`${valor?.toUpperCase()}`} ${complementacao}`
     }
 
     return mensagem
@@ -65,8 +66,8 @@ const ListaDeTarefas = () => {
   const mensagem = exibeResultadoFiltrado(contatos.length)
 
   return (
-    <Container>
-      <Resultado>{mensagem}</Resultado>
+    <MainContainer>
+      <Titulo as="p">{mensagem}</Titulo>
       <ListaContatos>
         {contatos.map((t) => (
           <li key={t.titulo}>
@@ -80,7 +81,7 @@ const ListaDeTarefas = () => {
           </li>
         ))}
       </ListaContatos>
-    </Container>
+    </MainContainer>
   )
 }
 
