@@ -8,32 +8,32 @@ import { BotaoSalvar } from '../../styles'
 type Props = Contact
 
 const Contato = ({
-  descricao: descricaoOriginal,
+  email: descricaoOriginal,
   titulo,
   tag,
   id,
-  descricao2: descricao2Original
+  telefone: descricao2Original
 }: Props) => {
   const dispatch = useDispatch()
   const [estaEdiando, setEstaEditando] = useState(false)
-  const [descricao, setDescricao] = useState('')
-  const [descricao2, setDescricao2] = useState('')
+  const [email, setEmail] = useState('')
+  const [telefone, setTelefone] = useState('')
 
   function cancelarEdicao() {
     setEstaEditando(false)
-    setDescricao(descricaoOriginal)
-    setDescricao2(descricao2Original)
+    setEmail(descricaoOriginal)
+    setTelefone(descricao2Original)
   }
 
   useEffect(() => {
     if (descricaoOriginal.length > 0) {
-      setDescricao(descricaoOriginal)
+      setEmail(descricaoOriginal)
     }
   }, [descricaoOriginal])
 
   useEffect(() => {
     if (descricao2Original.length > 0) {
-      setDescricao2(descricao2Original)
+      setTelefone(descricao2Original)
     }
   }, [descricao2Original])
 
@@ -49,8 +49,8 @@ const Contato = ({
         <S.Icon className="bi bi-envelope-fill"></S.Icon>
         <S.Descricao
           disabled={!estaEdiando}
-          value={descricao}
-          onChange={(evento) => setDescricao(evento.target.value)}
+          value={email}
+          onChange={(evento) => setEmail(evento.target.value)}
         />
       </S.Email>
 
@@ -58,8 +58,8 @@ const Contato = ({
         <S.Icon className="bi bi-telephone-fill"></S.Icon>
         <S.Descricao2
           disabled={!estaEdiando}
-          value={descricao2}
-          onChange={(evento) => setDescricao2(evento.target.value)}
+          value={telefone}
+          onChange={(evento) => setTelefone(evento.target.value)}
         />
       </S.Telefone>
 
@@ -82,9 +82,9 @@ const Contato = ({
                   editar({
                     titulo,
                     tag,
-                    descricao,
+                    email,
                     id,
-                    descricao2
+                    telefone
                   })
                 )
                 setEstaEditando(false)

@@ -1,7 +1,7 @@
 import BotaoAdicionar from '../../components/BotaoAdicionar'
 import BarraLateral from '../../containers/BarraLateral'
-import ListaDeTarefas from '../../containers/ListaDeTarefa'
-import { ListaContatos } from '../../containers/ListaDeTarefa/styles'
+import ListaDeTarefas from '../../containers/ListaDeContato'
+import { ListaContatos } from '../../containers/ListaDeContato/styles'
 
 const Home = () => (
   <>

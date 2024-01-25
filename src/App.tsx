@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux'
 import BarraLateral from './containers/BarraLateral'
-import ListaDeTarefas from './containers/ListaDeTarefa'
+import ListaDeTarefas from './containers/ListaDeContato'
 import EstiloGlobal, { Container } from './styles'
 import store from './store/'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'

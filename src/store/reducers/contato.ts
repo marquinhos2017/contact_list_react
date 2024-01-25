@@ -7,9 +7,9 @@ const contatosSlice = createSlice({
   initialState: {
     items: [
       new Contact(
-        'Marcos Rodrigues Correia',
+        'Marcos Rodrigues',
         enums.Tag.CHURCH,
-        'marcos.rodirgues2015@yahoo.com.br',
+        'marcos.roddrigues2015@yahoo.com.br',
         '(85) 98909564',
         1
       ),
